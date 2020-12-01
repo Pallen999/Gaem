@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    //public Animator animator;
-
+    public Animator animator;
     public Transform attack_point;
     public float attackRange = 0.5f;
     public LayerMask enemyleyers;
     public int attackdmg = 30;
+
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -23,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         //animation
-        //animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
 
         // kod för att "märka" vilka enemy som är in range och kan bli träffade
         Collider[] hitenemys = Physics.OverlapSphere(attack_point.position, attackRange, enemyleyers);  
@@ -33,8 +34,8 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider enemy in hitenemys)
         {
             enemy.GetComponent<enemy>().takedmg(10);
-                
-               
+
+            if (enemy != null) { maxhp}
            
         }
 
