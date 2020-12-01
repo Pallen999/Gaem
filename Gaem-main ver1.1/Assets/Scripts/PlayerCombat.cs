@@ -9,13 +9,14 @@ public class PlayerCombat : MonoBehaviour
     public Transform attack_point;
     public float attackRange = 0.5f;
     public LayerMask enemyleyers;
-    
+    public int attackdmg = 30;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
-        }
+            
+        }   
     }
 
     //vadsom händer när "attack" sker
@@ -31,17 +32,14 @@ public class PlayerCombat : MonoBehaviour
 
         foreach(Collider enemy in hitenemys)
         {
-           // enemy.GetComponent<enemy>().TakeDamge;
-
-
-            Debug.Log("we Hit " + enemy.name);
-
-
+            enemy.GetComponent<enemy>().takedmg(10);
+                
+               
+           
         }
 
 
     }
-
 
     void OnDrawGizmosSelected()
     {
@@ -51,7 +49,7 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.DrawWireSphere(attack_point.position, attackRange);
         
     }
-
+    
 
 
 
