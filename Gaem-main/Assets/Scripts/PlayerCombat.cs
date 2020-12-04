@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-   
+    //public Animator animator;
 
+    public Transform attack_point;
+    public float attackRange = 0.5f;
+    public LayerMask enemyleyers;
     
     void Update()
     {
@@ -15,8 +18,57 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    //vadsom händer när "attack" sker
     void Attack()
     {
+        //animation
+        //animator.SetTrigger("Attack");
+
+        // kod för att "märka" vilka enemy som är in range och kan bli träffade
+        Collider[] hitenemys = Physics.OverlapSphere(attack_point.position, attackRange, enemyleyers);  
+
+        //skada
+
+        foreach(Collider enemy in hitenemys)
+        {
+           // enemy.GetComponent<enemy>().TakeDamge;
+
+
+            Debug.Log("we Hit " + enemy.name);
+
+
+        }
+
 
     }
+
+
+    void OnDrawGizmosSelected()
+    {
+
+        if (attack_point == null)
+            return;
+        Gizmos.DrawWireSphere(attack_point.position, attackRange);
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
