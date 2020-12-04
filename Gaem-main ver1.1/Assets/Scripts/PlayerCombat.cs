@@ -35,7 +35,16 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy.GetComponent<enemy>().takedmg(10);
 
-            if (enemy != null) { maxhp}
+            if (enemy != null) 
+            
+            
+            {
+                Debug.Log("no enemy to hit within range");
+                    
+                    
+                    
+                    
+                    };
            
         }
 

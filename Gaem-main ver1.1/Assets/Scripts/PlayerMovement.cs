@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform cam;
 
 
-    public float speed = 6f;
+    public float speed = 6f;    
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
